@@ -1,12 +1,22 @@
-/* Typography */
+/*
+  Name: Yasin Bin Bakkar
+  File: style.css
+  Date: 05 June 2026
+  Stylesheet for the creepy crawlies splash page and planet data table.
+*/
+
+/* Body */
 body {
-  font: 1.2em / 1.5 system-ui;
-  margin: 0 auto;
+  font-family: system-ui, sans-serif;
+  font-size: 1.2em;
+  line-height: 1.5;
   width: 90%;
   min-width: 800px;
   max-width: 1200px;
+  margin: 0 auto;
 }
 
+/* Headings */
 h1 {
   text-align: center;
 }
@@ -15,15 +25,26 @@ h2 {
   margin-top: 1.5em;
 }
 
-/* Navigation menu */
+/* Links */
+a {
+  text-decoration: none;
+  color: red;
+}
+
+a:hover,
+a:focus {
+  text-decoration: underline;
+}
+
+/* Navigation */
 nav ul {
-  padding: 0;
   list-style-type: none;
-  text-align: center;
+  padding: 0;
   display: flex;
-  flex-flow: row wrap;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
 
 nav li {
@@ -35,22 +56,12 @@ nav a {
   padding: 0 20px;
 }
 
-/* General link styles */
-a {
-  text-decoration: none;
-  color: red;
-}
-
-a:hover,
-a:focus {
-  text-decoration: underline;
-}
-
-/* Header styling */
+/* Header */
 header {
   text-align: center;
 }
 
+/* Video */
 video {
   width: 100%;
   max-width: 600px;
@@ -58,7 +69,7 @@ video {
   margin: 20px 0;
 }
 
-/* Section and image styling */
+/* Sections */
 section {
   margin: 30px 0;
 }
@@ -72,4 +83,22 @@ section img {
 
 section p {
   text-align: justify;
+}
+
+/* Planet data table */
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: left;
+}
+
+caption {
+  font-size: 1.2em;
+  margin-bottom: 10px;
 }
