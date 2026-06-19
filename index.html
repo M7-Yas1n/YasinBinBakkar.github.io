@@ -1,59 +1,61 @@
+<!--
+Name: Web Development Student
+File: index.html
+Date: 19 June 2026
+Homepage showcasing typography, text styling, link colors, and navigation menu with proper formatting.
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Assignment 2</title>
-  <!--
-  Name: Yasin Bin Bakkar
-  File: index.html
-  Date: 05 June 2026
-  Simple landing page with links to Assignment 2 - Creepy Crawlies and Planet Data Table.
-  -->
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: white;
-      margin: 0;
-      padding: 20px;
-    }
-
-    h1 {
-      text-align: center;
-      color: black;
-      font-size: 2em;
-      margin-bottom: 50px;
-    }
-
-    div {
-      text-align: center;
-    }
-
-    a {
-      display: block;
-      margin: 20px 0;
-      font-size: 1.1em;
-      color: blue;
-      text-decoration: underline;
-    }
-
-    a:visited {
-      color: purple;
-    }
-
-    a:hover {
-      color: darkblue;
-    }
-  </style>
+	<meta charset="utf-8">
+	<title>Design & Development Studio</title>
+	<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="style.css">
 </head>
 <body>
+	<nav>
+		<ul>
+			<li><a href="#home">Home</a></li>
+			<li><a href="#services">Services</a></li>
+			<li><a href="#portfolio">Portfolio</a></li>
+			<li><a href="#contact">Contact</a></li>
+		</ul>
+	</nav>
 
-  <h1>Assignment 2</h1>
+	<main>
+		<h1>Creative Web Design & Development</h1>
 
-  <div>
-    <a href="creepy-crawlies/index.html">Creepy Crawlies</a>
-    <a href="planets-data.html">Planet Data Table</a>
-  </div>
+		<section id="services">
+			<h2>Our Services</h2>
+			<p>We specialize in creating beautiful, functional websites that help businesses grow. Our team brings together expertise in design, development, and user experience.</p>
 
+			<h3>Web Design</h3>
+			<p>Custom website design tailored to your brand identity and business goals. We focus on creating visually appealing layouts that engage your audience.</p>
+
+			<h3>Development</h3>
+			<p>Full-stack development using modern technologies and best practices. We build responsive, fast-loading websites that work across all devices.</p>
+
+			<h3>Consulting</h3>
+			<p>Strategic guidance on digital presence and web technology decisions. Our consultants help businesses navigate the rapidly changing web landscape.</p>
+		</section>
+
+		<section id="portfolio">
+			<h2>Recent Work</h2>
+			<p>Our portfolio includes projects for various industries, from e-commerce platforms to corporate websites. We're proud of the results our clients achieve.</p>
+
+			<ul>
+				<li>E-commerce platform redesign</li>
+				<li>Corporate website refresh</li>
+				<li>Mobile app marketing site</li>
+				<li>Non-profit organization website</li>
+			</ul>
+		</section>
+
+		<section id="contact">
+			<h2>Get In Touch</h2>
+			<p>Ready to start your next project? <a href="https://www.example.com" class="external">Contact us today</a> to discuss your vision and how we can help bring it to life.</p>
+		</section>
+	</main>
 </body>
 </html>
