@@ -1,0 +1,184 @@
+/*
+Name: Yasin Bin Bakkar
+File: layout.css
+Date: 19 June 2026
+Layout comprehension demonstrating flexbox navigation, sticky positioning, float-based images, and CSS grid layouts.
+*/
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	line-height: 1.6;
+	color: #333;
+}
+
+/* Navigation - Flexbox */
+nav {
+	position: sticky;
+	top: 0;
+	background-color: #2c3e50;
+	z-index: 1000;
+}
+
+nav ul {
+	list-style: none;
+	display: flex;
+	justify-content: space-around;
+	margin: 0;
+	padding: 0;
+}
+
+nav li {
+	flex: 1;
+}
+
+nav a {
+	display: block;
+	padding: 1rem;
+	color: white;
+	text-decoration: none;
+	text-align: center;
+	border-right: 1px solid #34495e;
+	transition: background-color 0.3s;
+}
+
+nav a:last-child {
+	border-right: none;
+}
+
+nav a:hover {
+	background-color: #34495e;
+}
+
+/* Main Container - Grid Layout */
+.container {
+	display: grid;
+	grid-template-columns: 2fr 1fr;
+	gap: 2rem;
+	max-width: 1200px;
+	margin: 2rem auto;
+	padding: 0 2rem;
+}
+
+/* Article with Float Images */
+article {
+	padding: 2rem;
+	background-color: #f9f9f9;
+	border-radius: 4px;
+}
+
+article h1 {
+	margin-bottom: 2rem;
+	color: #2c3e50;
+}
+
+article h2 {
+	margin-top: 2rem;
+	margin-bottom: 1rem;
+	color: #2c3e50;
+}
+
+article img {
+	float: left;
+	margin: 0 1.5rem 1rem 0;
+	max-width: 300px;
+	height: auto;
+	border-radius: 4px;
+}
+
+article p {
+	text-align: justify;
+	margin-bottom: 1rem;
+}
+
+section {
+	overflow: auto;
+	margin-bottom: 2rem;
+}
+
+/* Aside - Sidebar */
+aside {
+	padding: 2rem;
+	background-color: #ecf0f1;
+	border-radius: 4px;
+	height: fit-content;
+}
+
+aside h3 {
+	color: #2c3e50;
+	margin-bottom: 1rem;
+	margin-top: 0;
+}
+
+aside ul {
+	list-style: none;
+	padding-left: 0;
+	margin-bottom: 2rem;
+}
+
+aside li {
+	margin-bottom: 0.5rem;
+}
+
+aside a {
+	color: #2c5aa0;
+	text-decoration: none;
+}
+
+aside a:hover {
+	text-decoration: underline;
+}
+
+/* Gallery Section */
+.gallery-section {
+	max-width: 1200px;
+	margin: 3rem auto;
+	padding: 0 2rem;
+}
+
+.gallery-section h2 {
+	text-align: center;
+	margin-bottom: 2rem;
+	color: #2c3e50;
+}
+
+.photo-gallery {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 1px;
+	background-color: #ddd;
+	padding: 1px;
+	border-radius: 4px;
+}
+
+.photo-gallery img {
+	display: block;
+	width: 100%;
+	height: auto;
+	background-color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+	.container {
+		grid-template-columns: 1fr;
+	}
+
+	nav ul {
+		flex-wrap: wrap;
+	}
+
+	article img {
+		float: none;
+		margin: 1rem 0;
+	}
+
+	.photo-gallery {
+		grid-template-columns: 1fr;
+	}
+}
