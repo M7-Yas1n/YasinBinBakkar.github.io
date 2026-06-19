@@ -1,0 +1,38 @@
+/*
+Name: Yasin Bin Bakkar
+File: biography.css
+Date: 19 June 2026
+Styling for biography page including headings, contact list, and link colors.
+*/
+
+body {
+	font-family: Arial, sans-serif;
+	margin: 20px;
+	line-height: 1.6;
+}
+
+h1 {
+	border-bottom: 10px dotted purple;
+	padding-bottom: 10px;
+}
+
+h2 {
+	font-style: italic;
+}
+
+ul {
+	background-color: #eeeeee;
+	border: 5px solid purple;
+	padding: 20px;
+	margin: 20px 0;
+}
+
+a {
+	text-decoration: underline;
+	color: inherit;
+}
+
+a:hover {
+	color: darkgreen;
+	text-decoration: none;
+}
