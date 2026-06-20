@@ -1,8 +1,8 @@
 /*
-Name: Yasin Bin Bakkar
+Name: Your Name
 File: biography.css
 Date: 19 June 2026
-Styling for biography page including headings, contact list, and link colors.
+Styling for biography page including heading borders, italic h2, styled contact list, and link hover effects.
 */
 
 body {
@@ -36,3 +36,4 @@ a:hover {
 	color: darkgreen;
 	text-decoration: none;
 }
+
