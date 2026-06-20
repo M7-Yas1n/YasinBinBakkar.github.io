@@ -2,7 +2,7 @@
 Name: Yasin Bin Bakkar
 File: layout.css
 Date: 19 June 2026
-Layout comprehension demonstrating flexbox navigation, sticky positioning, float-based images, and CSS grid layouts.
+Layout styles demonstrating sticky flexbox navigation, float-based article images using a class selector, a two-column article and aside grid, and a two-column photo gallery with a 1px gap.
 */
 
 * {
@@ -17,7 +17,7 @@ body {
 	color: #333;
 }
 
-/* Navigation - Flexbox */
+/* Navigation - Flexbox with sticky positioning */
 nav {
 	position: sticky;
 	top: 0;
@@ -43,19 +43,16 @@ nav a {
 	color: white;
 	text-decoration: none;
 	text-align: center;
+	text-transform: uppercase;
 	border-right: 1px solid #34495e;
 	transition: background-color 0.3s;
-}
-
-nav a:last-child {
-	border-right: none;
 }
 
 nav a:hover {
 	background-color: #34495e;
 }
 
-/* Main Container - Grid Layout */
+/* Main Container - Article and Aside in two-column grid */
 .container {
 	display: grid;
 	grid-template-columns: 2fr 1fr;
@@ -65,7 +62,7 @@ nav a:hover {
 	padding: 0 2rem;
 }
 
-/* Article with Float Images */
+/* Article */
 article {
 	padding: 2rem;
 	background-color: #f9f9f9;
@@ -83,7 +80,8 @@ article h2 {
 	color: #2c3e50;
 }
 
-article img {
+/* Article images - class selector with float left and margins */
+.article-img {
 	float: left;
 	margin: 0 1.5rem 1rem 0;
 	max-width: 300px;
@@ -92,11 +90,11 @@ article img {
 }
 
 article p {
-	text-align: justify;
 	margin-bottom: 1rem;
 }
 
-section {
+/* Scoped to article sections only so it does not affect the gallery section */
+article > section {
 	overflow: auto;
 	margin-bottom: 2rem;
 }
@@ -111,8 +109,7 @@ aside {
 
 aside h3 {
 	color: #2c3e50;
-	margin-bottom: 1rem;
-	margin-top: 0;
+	margin: 0 0 1rem 0;
 }
 
 aside ul {
@@ -138,7 +135,7 @@ aside a:hover {
 .gallery-section {
 	max-width: 1200px;
 	margin: 3rem auto;
-	padding: 0 2rem;
+	padding: 0 2rem 3rem;
 }
 
 .gallery-section h2 {
@@ -147,23 +144,22 @@ aside a:hover {
 	color: #2c3e50;
 }
 
+/* Photo gallery - two-column grid with 1px gap between images */
 .photo-gallery {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	gap: 1px;
-	background-color: #ddd;
-	padding: 1px;
-	border-radius: 4px;
+	background-color: #ccc;
 }
 
-.photo-gallery img {
+/* Individual photo class selector */
+.photo {
 	display: block;
 	width: 100%;
 	height: auto;
-	background-color: white;
 }
 
-/* Responsive Design */
+/* Responsive */
 @media (max-width: 768px) {
 	.container {
 		grid-template-columns: 1fr;
@@ -173,9 +169,10 @@ aside a:hover {
 		flex-wrap: wrap;
 	}
 
-	article img {
+	.article-img {
 		float: none;
 		margin: 1rem 0;
+		max-width: 100%;
 	}
 
 	.photo-gallery {
