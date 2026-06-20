@@ -1,38 +1,38 @@
-/*
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!--
 Name: Yasin Bin Bakkar
-File: biography.css
+Student ID: 101027210
+File: biography.html
 Date: 19 June 2026
-Styling for biography page including heading borders, italic h2, styled contact list, and link hover effects.
-*/
+A biography page styled with an external CSS file including heading borders, italic subheadings, and a styled contact list.
+-->
+<title>Jane Doe - Biography</title>
+<link rel="stylesheet" href="biography.css">
+</head>
+<body>
 
-body {
-	font-family: Arial, sans-serif;
-	margin: 20px;
-	line-height: 1.6;
-}
+<h1>Jane Doe</h1>
+<p>Jane is a web designer and developer with a passion for creating accessible and intuitive digital experiences. She has worked with clients across various industries, from startups to established organizations.</p>
 
-h1 {
-	border-bottom: 10px dotted purple;
-	padding-bottom: 10px;
-}
+<h2>Early Life</h2>
+<p>Jane grew up in Toronto and developed an interest in technology at an early age. She spent her teenage years learning programming languages and designing websites for local businesses.</p>
 
-h2 {
-	font-style: italic;
-}
+<h2>Education</h2>
+<p>Jane completed her degree in Computer Science at a local university, where she focused on web development and user interface design. She continues to stay updated with the latest web technologies through online courses and industry conferences.</p>
 
-ul {
-	background-color: #eeeeee;
-	border: 5px solid purple;
-	padding: 20px;
-	margin: 20px 0;
-}
+<h2>Experience</h2>
+<p>With over five years of experience in web development, Jane has led projects ranging from small business websites to complex e-commerce platforms. Her expertise includes HTML, CSS, JavaScript, and modern frameworks.</p>
 
-a {
-	text-decoration: underline;
-	color: inherit;
-}
+<h2>Contact Details</h2>
+<ul>
+	<li><a href="mailto:jane@example.com">jane@example.com</a></li>
+	<li>Phone: (416) 555-0123</li>
+	<li><a href="https://www.linkedin.com/">LinkedIn Profile</a></li>
+	<li><a href="https://www.github.com/">GitHub Portfolio</a></li>
+</ul>
 
-a:hover {
-	color: darkgreen;
-	text-decoration: none;
-}
+</body>
+</html>
