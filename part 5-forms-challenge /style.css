@@ -1,0 +1,31 @@
+body {
+  font: 1em / 1.4 sans-serif;
+  width: 90%;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.form-section {
+  border-bottom: 1px solid #ccc;
+  padding: 10px 0 20px 0;
+}
+
+.separator {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+textarea {
+  width: 100%;
+}
+
+input[type="submit"] {
+  margin-top: 20px;
+  padding: 10px 20px;
+}
