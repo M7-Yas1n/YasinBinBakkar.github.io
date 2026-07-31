@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <!--
+  Name: Yasin Bin Bakkar
+  File: index.html
+  Date: 31 July 2026
+  Silly Story Generator - form page that triggers a randomized story in main.js.
+  -->
+  <title>Silly Story Generator</title>
+</head>
+<body>
+  <h1>Silly Story Generator</h1>
+
+  <form>
+    <div>
+      <label for="customname">Enter custom name:</label>
+      <input type="text" id="customname" name="customname">
+    </div>
+
+    <fieldset>
+      <legend>Select story location</legend>
+      <input type="radio" name="location" id="us" value="us" checked>
+      <label for="us">US</label>
+      <input type="radio" name="location" id="uk" value="uk">
+      <label for="uk">UK</label>
+    </fieldset>
+
+    <button id="generate">Generate random story</button>
+  </form>
+
+  <p id="story" aria-live="polite"></p>
+
+  <script src="main.js"></script>
+</body>
+</html>
