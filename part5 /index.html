@@ -1,132 +1,75 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <!--
-  Name: Yasin Bin Bakkar
-  File: index.html
-  Date: 31 July 2026
-  Structured feedback form for a vacation rental, built from a plain-text starting point.
-  -->
-  <title>We want your feedback!</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+  <head>
+    <meta charset="utf-8" />
+    <title>Forms challenge</title>
+    <link href="style.css" rel="stylesheet" />
+    <script defer src="index.js"></script>
+  </head>
+  <body>
+    We want your feedback!
 
-  <h1>We want your feedback!</h1>
+    We're very excited that you visited the little house in the woods,
+    and we want to hear what you thought of it! Please fill in the below
+    sections. You don't need to provide your name or contact details, but
+    if you do, we'll enter you into a prize draw where you'll have a chance
+    to win prizes.
 
-  <p>Thank you for staying with us at the <a href="#">little house in the woods</a>. Please fill out the form below to help us improve, and to be entered into our <a href="#">prize draw</a>.</p>
+    --
 
-  <img src="https://mdn.github.io/shared-assets/images/examples/learn/woodland-strip.jpg" alt="" style="width:100%;">
+    Facilities
 
-  <form>
+    Was the porridge
+    Too hot?
+    Too cold?
+    Just right?
 
-    <div class="form-section">
-      <h2>Facilities</h2>
+    Were the beds
+    Too hard?
+    Too soft?
+    Just right?
 
-      <fieldset>
-        <legend>How would you rate our staff?</legend>
-        <div class="separator">
-          <input type="radio" id="staff-good" name="staff" value="good" checked>
-          <label for="staff-good">Good</label>
-        </div>
-        <div class="separator">
-          <input type="radio" id="staff-neutral" name="staff" value="neutral">
-          <label for="staff-neutral">Neutral</label>
-        </div>
-        <div class="separator">
-          <input type="radio" id="staff-bad" name="staff" value="bad">
-          <label for="staff-bad">Bad</label>
-        </div>
-      </fieldset>
+    Describe the chairs (select all you agree with)
+    Comfy
+    Luxurious
+    Hi-tech
+    Pretty
+    Majestic
 
-      <fieldset>
-        <legend>How would you rate our facilities?</legend>
-        <div class="separator">
-          <input type="radio" id="facilities-good" name="facilities" value="good" checked>
-          <label for="facilities-good">Good</label>
-        </div>
-        <div class="separator">
-          <input type="radio" id="facilities-neutral" name="facilities" value="neutral">
-          <label for="facilities-neutral">Neutral</label>
-        </div>
-        <div class="separator">
-          <input type="radio" id="facilities-bad" name="facilities" value="bad">
-          <label for="facilities-bad">Bad</label>
-        </div>
-      </fieldset>
+    --
 
-      <fieldset>
-        <legend>Which facilities did you use?</legend>
-        <div class="separator">
-          <input type="checkbox" id="facility-pool" name="facility" value="pool">
-          <label for="facility-pool">Pool</label>
-        </div>
-        <div class="separator">
-          <input type="checkbox" id="facility-gym" name="facility" value="gym">
-          <label for="facility-gym">Gym</label>
-        </div>
-        <div class="separator">
-          <input type="checkbox" id="facility-sauna" name="facility" value="sauna">
-          <label for="facility-sauna">Sauna</label>
-        </div>
-      </fieldset>
-    </div>
+    About your hosts
 
-    <div class="form-section">
-      <h2>About your hosts</h2>
+    Who's your favorite bear?
+    Papa bear
+    Mama bear
+    Junior
+    Dozer
 
-      <div class="separator">
-        <label for="friendliness">How friendly were your hosts?</label>
-        <select id="friendliness" name="friendliness">
-          <option value="very">Very friendly</option>
-          <option value="somewhat">Somewhat friendly</option>
-          <option value="not">Not friendly</option>
-        </select>
-      </div>
+    Which greeting did you prefer?
+    Wave
+    Friendly greeting
+    Growl
+    Claw marks in the door
 
-      <div class="separator">
-        <label for="knowledge">How knowledgeable were your hosts about the local area?</label>
-        <select id="knowledge" name="knowledge">
-          <option value="very">Very knowledgeable</option>
-          <option value="somewhat">Somewhat knowledgeable</option>
-          <option value="not">Not knowledgeable</option>
-        </select>
-      </div>
-    </div>
+    --
 
-    <div class="form-section">
-      <h2>Any other feedback?</h2>
+    Any other feedback?
 
-      <div class="separator">
-        <label for="other">Any other feedback?</label>
-        <br>
-        <textarea id="other" name="other" rows="5"></textarea>
-      </div>
-    </div>
+    Give us your comments
 
-    <div class="form-section">
-      <h2>Your details</h2>
+    --
 
-      <div class="separator">
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name">
-      </div>
+    Your details
 
-      <div class="separator">
-        <label for="email">Email address</label>
-        <input type="email" id="email" name="email">
-      </div>
+    Name
+    Email
+    Phone
 
-      <div class="separator">
-        <label for="phone">Phone number</label>
-        <input type="tel" id="phone" name="phone">
-      </div>
-    </div>
+    --
 
-    <input type="submit" value="Submit">
+    Submit
 
-  </form>
-
-</body>
+    --
+  </body>
 </html>
