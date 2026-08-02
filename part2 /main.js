@@ -7,8 +7,9 @@ Builds a clickable thumbnail bar and handles the darken/lighten button.
 
 const displayedImage = document.querySelector(".displayed-img");
 const thumbBar = document.querySelector(".thumb-bar");
+
+const btn = document.querySelector("button");
 const overlay = document.querySelector(".overlay");
-const btn = document.querySelector(".full-img button");
 
 const baseUrl = "https://mdn.github.io/shared-assets/images/examples/learn/gallery/";
 
