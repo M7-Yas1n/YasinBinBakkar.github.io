@@ -1,27 +1,33 @@
 <!doctype html>
-<html lang="en-US">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="style.css" />
-<!--
+    <!--
     Name: Yasin Bin Bakkar
     File: index.html
     Date: 31 July 2026
-    Structuring content into the given format using JS.-->
-<div>
-  <label for="custom-name">Enter custom name:</label>
-  <input id="custom-name" type="text" placeholder="" />
-</div>
-<fieldset>
-  <legend>Choose locale:</legend>
-  <label for="us">US</label
-  ><input id="us" type="radio" name="uk-us" value="us" checked />
-  <label for="uk">UK</label
-  ><input id="uk" type="radio" name="uk-us" value="uk" />
-</fieldset>
-<div>
-  <button class="generate">Generate random story</button>
-</div>
-<!-- Thanks a lot to Willy Aguirre for his help with the code for this assessment -->
-<p class="story"></p>
-<script src="script.js"></script>
+    Silly story generator: fills a story template with random words, a
+    custom name, and US/UK unit conversions.
+    -->
+    <link rel="stylesheet" href="style.css" />
+    <title>Silly story generator</title>
+  </head>
+  <body>
+    <div>
+      <label for="custom-name">Enter custom name:</label>
+      <input id="custom-name" type="text" placeholder="" />
+    </div>
+    <fieldset>
+      <legend>Choose locale:</legend>
+      <label for="us">US</label
+      ><input id="us" type="radio" name="uk-us" value="us" checked />
+      <label for="uk">UK</label
+      ><input id="uk" type="radio" name="uk-us" value="uk" />
+    </fieldset>
+    <div>
+      <button class="generate">Generate random story</button>
+    </div>
+    <p class="story"></p>
+    <script src="main.js"></script>
+  </body>
+</html>
