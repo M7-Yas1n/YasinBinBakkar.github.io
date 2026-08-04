@@ -2,7 +2,8 @@
 Name: Yasin Bin Bakkar
 File: main.js
 Date: 31 July 2026
-Builds a clickable thumbnail bar and handles the darken/lighten button.
+Ball class with draw/update/collisionDetect methods; 25 balls bounce
+around the canvas and change colour when they collide.
 */
 
 const canvas = document.querySelector("canvas");
