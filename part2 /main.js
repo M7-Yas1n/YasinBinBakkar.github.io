@@ -7,45 +7,50 @@ Builds a clickable thumbnail bar and handles the darken/lighten button.
 
 const displayedImage = document.querySelector(".displayed-img");
 const thumbBar = document.querySelector(".thumb-bar");
-
 const btn = document.querySelector("button");
 const overlay = document.querySelector(".overlay");
-
-const baseUrl = "https://mdn.github.io/shared-assets/images/examples/learn/gallery/";
-
-const imageNames = ["pic1.jpg", "pic2.jpg", "pic3.jpg", "pic4.jpg", "pic5.jpg"];
-
-const altTexts = {
-  "pic1.jpg": "Closeup of a human eye",
-  "pic2.jpg": "An abstract pattern painting",
-  "pic3.jpg": "Purple and white flowers",
-  "pic4.jpg": "An Egyptian painting on a wall",
-  "pic5.jpg": "A yellow butterfly on a leaf",
-};
-
-for (let i = 1; i <= imageNames.length; i++) {
-  const fileName = imageNames[i - 1];
+// Solution: Create a data object..
+const images = [
+  { filename: "pic1.jpg", alt: "Closeup of a human eye" },
+  { filename: "pic2.jpg", alt: "Rock that looks like a wave" },
+  { filename: "pic3.jpg", alt: "Purple and white pansies" },
+  { filename: "pic4.jpg", alt: "Section of wall from a pharaoh's tomb" },
+  { filename: "pic5.jpg", alt: "Large moth on a leaf" },
+];
+// Solution: Loop through the images
+// Create a baseURL constant containing the baseURL of the images
+const baseURL = "images/";
+// Loop through the images using a for...of loop
+for (const image of images) {
+  // Create a new image element
   const newImage = document.createElement("img");
-  newImage.setAttribute("src", baseUrl + fileName);
-  newImage.setAttribute("alt", altTexts[fileName]);
+  // Set the source and alt text for the image
+  newImage.src = `${baseURL}${image.filename}`;
+  newImage.alt = image.alt;
+  // Append the image as a child of the thumbBar
   thumbBar.appendChild(newImage);
-
-  newImage.addEventListener("click", (e) => {
-    displayedImage.setAttribute("src", e.target.getAttribute("src"));
-    displayedImage.setAttribute("alt", e.target.getAttribute("alt"));
-  });
+  // Update the display to show the image full size when a thumb is clicked
+  newImage.addEventListener("click", updateDisplayedImage);
 }
-
+// Solution: Create the updateDisplayedImage() function
+function updateDisplayedImage(e) {
+  displayedImage.src = e.target.src;
+  displayedImage.alt = e.target.alt;
+}
+// Solution: Wire up the Darken/Lighten button
+// Add a click event listener on the button
 btn.addEventListener("click", () => {
-  const btnClass = btn.getAttribute("class");
-
-  if (btnClass === "dark") {
-    btn.setAttribute("class", "light");
+  // If the button has a "dark" class set,
+  // change text to "Lighten" and make the overlay darker
+  if (btn.classList.contains("dark")) {
     btn.textContent = "Lighten";
-    overlay.style.opacity = 0.5;
+    overlay.style.backgroundColor = "rgb(0 0 0 / 0.5)";
   } else {
-    btn.setAttribute("class", "dark");
+    // Else, change text to "Darken" and make
+    // the overlay lighter
     btn.textContent = "Darken";
-    overlay.style.opacity = 0;
+    overlay.style.backgroundColor = "rgb(0 0 0 / 0)";
   }
+  // Toggle the class ready for the next button press
+  btn.classList.toggle("dark");
 });
