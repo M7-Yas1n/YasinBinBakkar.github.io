@@ -5,46 +5,100 @@ Date: 31 July 2026
 Builds a clickable thumbnail bar and handles the darken/lighten button.
 */
 
-const displayedImage = document.querySelector(".displayed-img");
-const thumbBar = document.querySelector(".thumb-bar");
-const overlay = document.querySelector(".overlay");
-const btn = document.querySelector(".full-img button");
+const canvas = document.querySelector("canvas");
+const ctx = canvas.getContext("2d");
 
-const baseUrl = "https://mdn.github.io/shared-assets/images/examples/learn/gallery/";
+const width = (canvas.width = window.innerWidth);
+const height = (canvas.height = window.innerHeight);
 
-const imageNames = ["pic1.jpg", "pic2.jpg", "pic3.jpg", "pic4.jpg", "pic5.jpg"];
-
-const altTexts = {
-  "pic1.jpg": "Closeup of a human eye",
-  "pic2.jpg": "An abstract pattern painting",
-  "pic3.jpg": "Purple and white flowers",
-  "pic4.jpg": "An Egyptian painting on a wall",
-  "pic5.jpg": "A yellow butterfly on a leaf",
-};
-
-for (let i = 1; i <= imageNames.length; i++) {
-  const fileName = imageNames[i - 1];
-  const newImage = document.createElement("img");
-  newImage.setAttribute("src", baseUrl + fileName);
-  newImage.setAttribute("alt", altTexts[fileName]);
-  thumbBar.appendChild(newImage);
-
-  newImage.addEventListener("click", (e) => {
-    displayedImage.setAttribute("src", e.target.getAttribute("src"));
-    displayedImage.setAttribute("alt", e.target.getAttribute("alt"));
-  });
+function random(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-btn.addEventListener("click", () => {
-  const btnClass = btn.getAttribute("class");
+function randomRGB() {
+  return `rgb(${random(0, 255)} ${random(0, 255)} ${random(0, 255)})`;
+}
 
-  if (btnClass === "dark") {
-    btn.setAttribute("class", "light");
-    btn.textContent = "Lighten";
-    overlay.style.opacity = 0.5;
-  } else {
-    btn.setAttribute("class", "dark");
-    btn.textContent = "Darken";
-    overlay.style.opacity = 0;
+class Ball {
+  constructor(x, y, velX, velY, color, size) {
+    this.x = x;
+    this.y = y;
+    this.velX = velX;
+    this.velY = velY;
+    this.color = color;
+    this.size = size;
   }
-});
+
+  draw() {
+    ctx.beginPath();
+    ctx.fillStyle = this.color;
+    ctx.arc(this.x, this.y, this.size, 0, 2 * Math.PI);
+    ctx.fill();
+  }
+
+  update() {
+    if (this.x + this.size >= width) {
+      this.velX = -this.velX;
+    }
+
+    if (this.x - this.size <= 0) {
+      this.velX = -this.velX;
+    }
+
+    if (this.y + this.size >= height) {
+      this.velY = -this.velY;
+    }
+
+    if (this.y - this.size <= 0) {
+      this.velY = -this.velY;
+    }
+
+    this.x += this.velX;
+    this.y += this.velY;
+  }
+
+  collisionDetect() {
+    for (const ball of balls) {
+      if (this !== ball) {
+        const dx = this.x - ball.x;
+        const dy = this.y - ball.y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+
+        if (distance < this.size + ball.size) {
+          ball.color = this.color = randomRGB();
+        }
+      }
+    }
+  }
+}
+
+const balls = [];
+
+while (balls.length < 25) {
+  const size = random(10, 20);
+  const ball = new Ball(
+    random(0 + size, width - size),
+    random(0 + size, height - size),
+    random(-7, 7),
+    random(-7, 7),
+    randomRGB(),
+    size,
+  );
+
+  balls.push(ball);
+}
+
+function loop() {
+  ctx.fillStyle = "rgb(0 0 0 / 25%)";
+  ctx.fillRect(0, 0, width, height);
+
+  for (const ball of balls) {
+    ball.draw();
+    ball.update();
+    ball.collisionDetect();
+  }
+
+  requestAnimationFrame(loop);
+}
+
+loop();
