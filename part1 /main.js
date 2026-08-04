@@ -2,13 +2,28 @@
 Name: Yasin Bin Bakkar
 File: main.js
 Date: 31 July 2026
-Builds a random silly story from arrays of words and user input.
+Fills in a story template with randomly chosen words, an optional custom
+name, and converts US units to UK units when the UK locale is selected.
 */
 
-// Complete variable definitions and random function.
+// Story template. "Bob" is the default character name, and 300lb / 94
+// degrees fahrenheit are the US units that get converted for the UK locale.
+const storyText =
+  "Bob was walking to the shop on a hot day. The temperature was a" +
+  " scorching 94 degrees fahrenheit, and Bob could feel the heat" +
+  " radiating off the pavement. Along the way, Bob spotted a :insertx:" +
+  " sitting outside a house, which made them smile. A little further on," +
+  " they passed a :inserty: that reminded them of home. Bob felt as heavy" +
+  " as a 300lb boulder from the shopping bags, but pushed on anyway." +
+  " Finally, tired and thirsty, they reached the shop and treated" +
+  " themselves to an ice-cold :insertz: to cool down.";
 
-const customName = document.getElementById("custom-name");
-const generateBtn = document.querySelector(".generate");
+const insertX = ["fluffy cat", "old bicycle", "garden gnome"];
+const insertY = ["red mailbox", "wooden bench", "bright mural"];
+const insertZ = ["lemonade", "milkshake", "soda"];
+
+const customName = document.querySelector("#custom-name");
+const randomize = document.querySelector(".generate");
 const story = document.querySelector(".story");
 
 function randomValueFromArray(array) {
@@ -16,47 +31,36 @@ function randomValueFromArray(array) {
   return array[random];
 }
 
-// Solution: Raw text strings
+function result() {
+  let newStory = storyText;
 
-const characters = ["Willy the Goblin", "Big Daddy", "Father Christmas"];
-const places = ["the soup kitchen", "Disneyland", "the White House"];
-const events = [
-  "spontaneously combusted",
-  "melted into a puddle on the sidewalk",
-  "turned into a slug and slithered away",
-];
+  const xItem = randomValueFromArray(insertX);
+  const yItem = randomValueFromArray(insertY);
+  const zItem = randomValueFromArray(insertZ);
 
-// Solution: Partial return random string function
-
-function returnRandomStoryString() {
-  const randomCharacter = randomValueFromArray(characters);
-  const randomPlace = randomValueFromArray(places);
-  const randomEvent = randomValueFromArray(events);
-
-  let storyText = `It was 94 Fahrenheit outside, so ${randomCharacter} went for a walk. When they got to ${randomPlace}, they stared in horror for a few moments, then ${randomEvent}. Bob saw the whole thing, but was not surprised — ${randomCharacter} weighs 300 pounds, and it was a hot day.`;
-
-  return storyText;
-}
-
-// Solution: Event listener and partial generate function definition
-
-generateBtn.addEventListener("click", generateStory);
-
-function generateStory() {
-  let newStory = returnRandomStoryString();
+  newStory = newStory.replaceAll(":insertx:", xItem);
+  newStory = newStory.replaceAll(":inserty:", yItem);
+  newStory = newStory.replaceAll(":insertz:", zItem);
 
   if (customName.value !== "") {
     const name = customName.value;
-    newStory = newStory.replace("Bob", name);
+    newStory = newStory.replaceAll("Bob", name);
   }
 
-  if (document.getElementById("uk").checked) {
-    const weight = `${Math.round(300 / 14)} stone`;
-    const temperature = `${Math.round((94 - 32) * (5 / 9))} Celsius`;
-    newStory = newStory.replace("300 pounds", weight);
-    newStory = newStory.replace("94 Fahrenheit", temperature);
+  if (document.querySelector("#uk").checked) {
+    const weightInLb = 300;
+    const weightInStone = Math.round((weightInLb / 14) * 10) / 10;
+    newStory = newStory.replaceAll("300lb", `${weightInStone} stone`);
+
+    const fahrenheit = 94;
+    const celsius = Math.round(((fahrenheit - 32) * 5) / 9);
+    newStory = newStory.replaceAll(
+      "94 degrees fahrenheit",
+      `${celsius} degrees celsius`,
+    );
   }
 
   story.textContent = newStory;
-  story.style.visibility = "visible";
 }
+
+randomize.addEventListener("click", result);
