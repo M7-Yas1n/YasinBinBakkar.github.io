@@ -2,55 +2,42 @@
 Name: Yasin Bin Bakkar
 File: main.js
 Date: 31 July 2026
-Builds a clickable thumbnail bar and handles the darken/lighten button.
+Builds a clickable thumbnail bar from an array of image file names and
+handles the darken/lighten button.
 */
 
 const displayedImage = document.querySelector(".displayed-img");
 const thumbBar = document.querySelector(".thumb-bar");
 const btn = document.querySelector("button");
 const overlay = document.querySelector(".overlay");
-// Solution: Create a data object..
-const images = [
-  { filename: "pic1.jpg", alt: "Closeup of a human eye" },
-  { filename: "pic2.jpg", alt: "Rock that looks like a wave" },
-  { filename: "pic3.jpg", alt: "Purple and white pansies" },
-  { filename: "pic4.jpg", alt: "Section of wall from a pharaoh's tomb" },
-  { filename: "pic5.jpg", alt: "Large moth on a leaf" },
-];
-// Solution: Loop through the images
-// Create a baseURL constant containing the baseURL of the images
-const baseURL = "images/";
-// Loop through the images using a for...of loop
-for (const image of images) {
-  // Create a new image element
+
+// Build the array of image file names — files are named pic1.jpg through
+// pic5.jpg, so the loop starts at 1 to match the file names, not 0.
+const images = [];
+for (let i = 1; i <= 5; i++) {
+  images.push(`pic${i}.jpg`);
+}
+
+images.forEach((image) => {
   const newImage = document.createElement("img");
-  // Set the source and alt text for the image
-  newImage.src = `${baseURL}${image.filename}`;
-  newImage.alt = image.alt;
-  // Append the image as a child of the thumbBar
+  newImage.setAttribute("src", `images/${image}`);
   thumbBar.appendChild(newImage);
-  // Update the display to show the image full size when a thumb is clicked
-  newImage.addEventListener("click", updateDisplayedImage);
-}
-// Solution: Create the updateDisplayedImage() function
-function updateDisplayedImage(e) {
-  displayedImage.src = e.target.src;
-  displayedImage.alt = e.target.alt;
-}
-// Solution: Wire up the Darken/Lighten button
-// Add a click event listener on the button
+
+  newImage.addEventListener("click", (e) => {
+    displayedImage.setAttribute("src", e.target.getAttribute("src"));
+  });
+});
+
 btn.addEventListener("click", () => {
-  // If the button has a "dark" class set,
-  // change text to "Lighten" and make the overlay darker
-  if (btn.classList.contains("dark")) {
+  const btnClass = btn.getAttribute("class");
+
+  if (btnClass === "dark") {
+    btn.setAttribute("class", "light");
     btn.textContent = "Lighten";
-    overlay.style.backgroundColor = "rgb(0 0 0 / 0.5)";
+    overlay.style.backgroundColor = "rgb(0 0 0 / 50%)";
   } else {
-    // Else, change text to "Darken" and make
-    // the overlay lighter
+    btn.setAttribute("class", "dark");
     btn.textContent = "Darken";
-    overlay.style.backgroundColor = "rgb(0 0 0 / 0)";
+    overlay.style.backgroundColor = "rgb(0 0 0 / 0%)";
   }
-  // Toggle the class ready for the next button press
-  btn.classList.toggle("dark");
 });
