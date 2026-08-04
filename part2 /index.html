@@ -1,23 +1,29 @@
 <!doctype html>
-<html lang="en-US">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="style.css" />
-<!--
+    <!--
     Name: Yasin Bin Bakkar
     File: index.html
     Date: 31 July 2026
-    Structuring content into the given format using JS.-->
-<h1>Image gallery example</h1>
+    Image gallery with a clickable thumbnail bar and a darken/lighten toggle.
+    -->
+    <link rel="stylesheet" href="style.css" />
+    <title>Image gallery</title>
+  </head>
+  <body>
+    <h1>Image gallery example</h1>
 
-<div class="full-img">
-  <img
-    class="displayed-img"
-    src="https://mdn.github.io/shared-assets/images/examples/learn/gallery/pic1.jpg"
-    alt="Closeup of a human eye" />
-  <div class="overlay"></div>
-  <button class="dark">Darken</button>
-</div>
+    <div class="full-img">
+      <img
+        class="displayed-img"
+        src="images/pic1.jpg"
+        alt="Closeup of a human eye" />
+      <div class="overlay"></div>
+      <button class="dark">Darken</button>
+    </div>
 
-<div class="thumb-bar"></div>
-<script src="script.js"></script>
+    <div class="thumb-bar"></div>
+    <script src="main.js"></script>
+  </body>
+</html>
