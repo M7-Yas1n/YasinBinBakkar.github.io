@@ -1,4 +1,4 @@
-// Name: Your Name
+// Name: Yasin Bin Bakkar
 // File: main.js
 // Date: 11 August 2026
 // Show/hide comments and add-comment functionality for the accessibility challenge page.
